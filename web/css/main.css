@@ -1,0 +1,125 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24/05/2017, 21:27:38
+    Author     : Aluno
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+  background: #F5F5F5;
+  font-family: 'lato';
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.header {
+  background: #3989CE;
+  background-image: url('');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: block;
+  height: 700px;
+  padding-top: 50px;
+}
+
+.header-content {
+  margin: 150px auto 0;
+  width: 50%;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 40px;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+   background: -webkit-linear-gradient(#000, #555);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 10px;
+}
+
+.header-description {
+  font-size: 18px;
+  color: #FFFFFF;
+}
+
+
+.menu {
+  text-align: center;
+}
+
+.logo {
+  position: relative;
+  top: 25px;
+}
+
+.menu-link {
+  color: #FFFFFF;
+  padding: 0 20px;
+  text-decoration: none;
+  font-size: 14px;
+  text-shadow: 0 1px 2px #444;
+}
+
+.features {
+  background-color: #FFFFFF;
+  margin: -50px 0 50px;
+  box-shadow: 0px 2px 10px #444;
+  padding: 50px;
+}
+
+.contact {
+  box-shadow: inset 2px 0px 10px #444;
+  background-color: #d5d5d5;
+  padding: 50px 0;
+}
+
+.contact-label {
+  margin-bottom: 10px;
+  display: block;
+  color: #222222;
+}
+  
+.contact-input {
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  border: 1px solid #BBB;
+  padding: 7px 10px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.contact-message {
+  height: 150px;
+  resize: none;
+}
+
+.footer {
+  background-color: #444;
+  padding: 15px;
+  text-align: center;
+  color: #FFF;
+  font-size: 12px;
+}
+
+.contact-button {
+    padding: 10px 20px;
+    background-color: #3989CE;
+    color: #FFFFFF;
+    border-radius: 2px;
+    float: right;
+}
