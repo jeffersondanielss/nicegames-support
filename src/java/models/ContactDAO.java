@@ -44,7 +44,7 @@ public class ContactDAO {
     
     public int saveSupport(Contact cli){
         try{
-            String comando = "INSERT INTO `nicegames`.`supportmessage`(`email`, `subject`, `message`)VALUES(?,?,?)";
+            String comando = "INSERT INTO `nicegames`.`supportmessage`(`email_cliente`, `subject`, `message`)VALUES(?,?,?)";
             
             st = this.conexao.prepareStatement(comando);
             st.setString(1, cli.getEmail());

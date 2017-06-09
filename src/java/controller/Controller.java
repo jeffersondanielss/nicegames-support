@@ -6,8 +6,10 @@
 package controller;
 
 import bean.Contact;
+import bean.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.ContactDAO;
+import models.UsuarioDAO;
 
 /**
  *
@@ -54,23 +57,37 @@ public class Controller extends HttpServlet {
                 
 
                 ContactDAO dao = new ContactDAO();
+                UsuarioDAO usuarioDAO = new UsuarioDAO();
 
                 int r = dao.connect();
 
                 if(r == 0) {
                     mensagem = "Erro ao se conectar ao banco de dados";
-                } else {
-                    r = dao.saveSupport(contact);
                     
-                    out.println(r);
-
-                    if(r == 1){
-                        mensagem = "Mensagem Enviada";
-
-                    } else if(r == 2) {
-                        mensagem = "Erro!";
+                } else {
+                    
+                    if(usuarioDAO.getLogin(contact.getEmail(), contact.getPassword()) >= 1) {
+                        r = dao.saveSupport(contact);
+                        
                     } else {
-                        mensagem = "Erro!a";
+                        r = 3;
+                    }
+                    
+                    switch (r) {
+                        case 1:  
+                            mensagem = "Mensagem Enviada";
+                            break;
+                        
+                        case 2:  
+                            mensagem = "Erro!";
+                            break;
+                            
+                        case 3:  
+                            mensagem = "Senha ou usuário inválidos";
+                            break;
+                            
+                        default:
+                            mensagem = "Erro!";
                     }
 
                     dao.desconnect();
@@ -81,12 +98,7 @@ public class Controller extends HttpServlet {
                 d.forward(request,response);
 
 
-            } else {
-                mensagem = "erro";
-                request.setAttribute("mensagem", mensagem);
-                RequestDispatcher d = request.getRequestDispatcher("TrataErro.jsp");
-                d.forward(request,response);
-            }            
+            }         
             
             //end
             
